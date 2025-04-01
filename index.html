@@ -7,7 +7,7 @@
         body {
             font-family: Arial, sans-serif;
             text-align: center;
-            background:  black;
+            background: black;
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -62,12 +62,21 @@
             z-index: -1;
         }
         .prank-content {
-            position: relative;
-            z-index: 1;
+            position: center;
+            z-index: 2;
             color: white;
             font-size: 50px;
             font-weight: bold;
             text-shadow: 2px 2px 10px black;
+        }
+        .emoji {
+            position: absolute;
+            font-size: 50px;
+            animation: laughEffect 1s infinite alternate ease-in-out;
+        }
+        @keyframes laughEffect {
+            from { transform: rotate(-10deg); }
+            to { transform: rotate(10deg); }
         }
     </style>
 </head>
@@ -77,15 +86,17 @@
         <input type="text" id="username" placeholder="Enter Username" required>
         <input type="password" id="password" placeholder="Enter Password" required>
         <button onclick="checkLogin()">Login</button>
-    </div><div class="hidden prank-page" id="prank-page">
-    <video autoplay loop class="prank-video" id="prank-video">
-        <source src="https://www.dropbox.com/scl/fi/mpm77wtkoadeyxshz5sne/6e6671e00d2884dd0ce6a47c8f242558.mp4?rlkey=keibp75dva9vqnbjoxycdsa07&st=76hwhzog&dl=0" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="prank-content">APRIL FOOL! 🤣🤣🤣</div>
-</div>
-
-<script>
+    </div>
+    <div class="hidden prank-page" id="prank-page">
+        <video autoplay loop class="prank-video" id="prank-video">
+            <source src="https://www.dropbox.com/scl/fi/mpm77wtkoadeyxshz5sne/6e6671e00d2884dd0ce6a47c8f242558.mp4?rlkey=keibp75dva9vqnbjoxycdsa07&raw=1" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+        <div class="prank-content">
+            APRIL FOOL! 🤣🤣🤣
+            <span class="emoji" style="left: 80%; top: 20%;">🤣</span>
+        </div>
+    </div><script>
     function checkLogin() {
         let password = document.getElementById('password').value;
         if (password === "MR.ROMANTIC") {
